@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Posts from "./components/Posts";
+import Postfoorm from "./components/Postfoorm";
 
 class App extends Component {
   render() {
@@ -9,6 +10,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          <Postfoorm />
+          /<hr />
           <Posts />
           <a
             className="App-link"
