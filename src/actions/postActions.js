@@ -1,4 +1,4 @@
-import { FETCH_POSTS, NEW_POST } from "./types";
+import { FETCH_POSTS, NEW_POST, FETCH_COMMENTS } from "./types";
 
 export const fetchPosts = () => dispatch => {
   fetch("https://jsonplaceholder.typicode.com/posts")
@@ -25,6 +25,18 @@ export const createPost = postData => dispatch => {
       dispatch({
         type: NEW_POST,
         payload: post
+      })
+    );
+};
+
+export const fetchComments = () => dispatch => {
+  console.log("action comments called");
+  fetch("https://jsonplaceholder.typicode.com/comments")
+    .then(res => res.json())
+    .then(comment =>
+      dispatch({
+        type: FETCH_COMMENTS,
+        payload: comment
       })
     );
 };
