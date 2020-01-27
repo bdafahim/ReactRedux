@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import Posts from "./components/Posts";
 import Postfoorm from "./components/Postfoorm";
 import store from "./store";
+import Comments from "./components/Comments";
 
 class App extends Component {
   render() {
@@ -16,6 +17,8 @@ class App extends Component {
             <Postfoorm />
             /<hr />
             <Posts />
+            <hr />
+            <Comments />
             <a
               className="App-link"
               href="https://reactjs.org"
