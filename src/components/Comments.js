@@ -1,12 +1,38 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { fetchComments } from "../actions/postActions";
 
 class Comments extends Component {
-  state = {};
-  render() {
-    return <h1>Hello</h1>;
-  }
+    componentWillMount() {
+        this.props.fetchComments();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.newPost) {
+            this.props.posts.unshift(nextProps.newPost);
+        }
+    }
+
+    render() {
+        const commentItems = this.props.posts.map(comment => (
+            <div key={comment.id}>
+                <h3>{comment.name}</h3>
+                <p>{comment.body}</p>
+            </div>
+        ));
+        return (
+            <div>
+                <h1>Comments</h1>
+                {commentItems}
+            </div>
+        );
+    }
 }
 
-export default Comments;
+const mapStateToProps = state => ({
+    posts: state.posts.items,
+    newPost: state.posts.item
+});
+
+export default connect(mapStateToProps, { fetchComments })(Comments);
