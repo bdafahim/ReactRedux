@@ -42,10 +42,10 @@ export const fetchComments = () => dispatch => {
 export const fetchAlbums = () => dispatch => {
     fetch("https://jsonplaceholder.typicode.com/albums")
         .then(res => res.json())
-        .then(comment =>
+        .then(albums =>
             dispatch({
                 type: FETCH_ALBUMS,
-                payload: comment
+                payload: albums
             })
         );
 };

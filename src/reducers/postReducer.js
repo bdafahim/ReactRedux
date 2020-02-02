@@ -1,4 +1,9 @@
-import { FETCH_POSTS, NEW_POST, FETCH_COMMENTS } from "../actions/types";
+import {
+    FETCH_POSTS,
+    NEW_POST,
+    FETCH_COMMENTS,
+    FETCH_ALBUMS
+} from "../actions/types";
 
 const initialState = {
     items: [],
@@ -19,6 +24,12 @@ export default function(state = initialState, action) {
             };
 
         case FETCH_COMMENTS:
+            return {
+                ...state,
+                items: action.payload
+            };
+
+        case FETCH_ALBUMS:
             return {
                 ...state,
                 items: action.payload
