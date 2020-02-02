@@ -6,6 +6,7 @@ import Posts from "./components/Posts";
 import Postfoorm from "./components/Postfoorm";
 import store from "./store";
 import Comments from "./components/Comments";
+import Albums from "./components/Albums";
 
 class App extends Component {
     render() {
@@ -15,7 +16,9 @@ class App extends Component {
                     <header className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
                         <Postfoorm />
-                        /<hr />
+                        <hr />
+                        <Albums />
+                        <hr />
                         <Comments />
                         <hr />
                         <Posts />
